@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		83346DA72D0B9A770006CEAB /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83346DA52D0B9A770006CEAB /* libssl.3.dylib */; };
+		83346DA82D0B9A770006CEAB /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83346DA62D0B9A770006CEAB /* libcrypto.3.dylib */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		834E11472CFFC54400105851 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		83346DA52D0B9A770006CEAB /* libssl.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.3.dylib; path = "../../../../../../../opt/homebrew/Cellar/openssl@3/3.4.0/lib/libssl.3.dylib"; sourceTree = "<group>"; };
+		83346DA62D0B9A770006CEAB /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = "../../../../../../../opt/homebrew/Cellar/openssl@3/3.4.0/lib/libcrypto.3.dylib"; sourceTree = "<group>"; };
 		834E11492CFFC54400105851 /* SecretKey */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SecretKey; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -35,16 +42,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83346DA72D0B9A770006CEAB /* libssl.3.dylib in Frameworks */,
+				83346DA82D0B9A770006CEAB /* libcrypto.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83346DA42D0B9A770006CEAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83346DA62D0B9A770006CEAB /* libcrypto.3.dylib */,
+				83346DA52D0B9A770006CEAB /* libssl.3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		834E11402CFFC54400105851 = {
 			isa = PBXGroup;
 			children = (
 				834E114B2CFFC54400105851 /* SecretKey */,
+				83346DA42D0B9A770006CEAB /* Frameworks */,
 				834E114A2CFFC54400105851 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -245,6 +264,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				"HEADER_SEARCH_PATHS[arch=*]" = "/opt/homebrew/opt/openssl@3/include/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/opt/homebrew/Cellar/openssl@3/3.4.0/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "/opt/homebrew/opt/openssl@3/lib/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -253,6 +278,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				"HEADER_SEARCH_PATHS[arch=*]" = "/opt/homebrew/opt/openssl@3/include/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/opt/homebrew/Cellar/openssl@3/3.4.0/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "/opt/homebrew/opt/openssl@3/lib/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
